@@ -13,9 +13,18 @@ type JsonFormatter struct {
 }
 
 func (f *JsonFormatter) Format(e *Entry) error {
+	if !e.logger.opt.disableApp {
+		e.Map["appName"] = e.logger.opt.appName
+		e.Map["appType"] = e.logger.opt.appType
+	}
+
+	if e.logger.opt.flag != 0 {
+		e.Map["flag"] = e.logger.opt.flag
+	}
+
 	if !f.IgnoreBasicFields {
 		e.Map["level"] = LevelNameMapping[e.Level]
-		e.Map["time"] = e.Time.Format(time.RFC3339)
+		e.Map["time"] = e.Time.Format(time.DateTime)
 		if e.File != "" {
 			e.Map["file"] = e.File + ":" + strconv.Itoa(e.Line)
 			e.Map["func"] = e.Func

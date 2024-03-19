@@ -64,11 +64,22 @@ func (l *logger) Info(args ...interface{}) {
 	l.entry().write(InfoLevel, FmtEmptySeparate, args...)
 }
 
+// with flag
+func (l *logger) InfoF(flag int, args ...interface{}) {
+	l.opt.flag = flag
+	l.entry().write(InfoLevel, FmtEmptySeparate, args...)
+}
+
 func (l *logger) Warn(args ...interface{}) {
 	l.entry().write(WarnLevel, FmtEmptySeparate, args...)
 }
 
 func (l *logger) Error(args ...interface{}) {
+	l.entry().write(ErrorLevel, FmtEmptySeparate, args...)
+}
+
+func (l *logger) ErrorF(flag int, args ...interface{}) {
+	l.opt.flag = flag
 	l.entry().write(ErrorLevel, FmtEmptySeparate, args...)
 }
 
