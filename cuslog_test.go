@@ -11,5 +11,5 @@ func TestCuslog(t *testing.T) {
 		WithApp(1, "vuln-center"),
 	)
 	l.Info("custom log with json formatter")
-	l.InfoF(1, "custom log with json formatter")
+	l.InfoF("custom log with json formatter")
 }

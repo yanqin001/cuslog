@@ -65,8 +65,8 @@ func (l *logger) Info(args ...interface{}) {
 }
 
 // with flag
-func (l *logger) InfoF(flag int, args ...interface{}) {
-	l.opt.flag = flag
+func (l *logger) InfoF(args ...interface{}) {
+	l.opt.flag = 1
 	l.entry().write(InfoLevel, FmtEmptySeparate, args...)
 }
 
@@ -78,8 +78,8 @@ func (l *logger) Error(args ...interface{}) {
 	l.entry().write(ErrorLevel, FmtEmptySeparate, args...)
 }
 
-func (l *logger) ErrorF(flag int, args ...interface{}) {
-	l.opt.flag = flag
+func (l *logger) ErrorF(args ...interface{}) {
+	l.opt.flag = 2
 	l.entry().write(ErrorLevel, FmtEmptySeparate, args...)
 }
 
