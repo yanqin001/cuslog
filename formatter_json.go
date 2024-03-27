@@ -32,9 +32,9 @@ func (f *JsonFormatter) Format(e *Entry) error {
 
 		switch e.Format {
 		case FmtEmptySeparate:
-			e.Map["message"] = fmt.Sprint(e.Args...)
+			e.Map["msg"] = fmt.Sprint(e.Args...)
 		default:
-			e.Map["message"] = fmt.Sprintf(e.Format, e.Args...)
+			e.Map["msg"] = fmt.Sprintf(e.Format, e.Args...)
 		}
 
 		return jsoniter.NewEncoder(e.Buffer).Encode(e.Map)

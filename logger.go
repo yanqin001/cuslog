@@ -101,11 +101,21 @@ func (l *logger) Infof(format string, args ...interface{}) {
 	l.entry().write(InfoLevel, format, args...)
 }
 
+func (l *logger) InfoFf(flag int, format string, args ...interface{}) {
+	l.opt.flag = flag
+	l.entry().write(InfoLevel, format, args...)
+}
+
 func (l *logger) Warnf(format string, args ...interface{}) {
 	l.entry().write(WarnLevel, format, args...)
 }
 
 func (l *logger) Errorf(format string, args ...interface{}) {
+	l.entry().write(ErrorLevel, format, args...)
+}
+
+func (l *logger) ErrorFf(flag int, format string, args ...interface{}) {
+	l.opt.flag = flag
 	l.entry().write(ErrorLevel, format, args...)
 }
 

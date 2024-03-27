@@ -8,19 +8,16 @@ import (
 )
 
 type Entry struct {
-	logger  *logger
-	Buffer  *bytes.Buffer
-	Map     map[string]interface{}
-	Level   Level
-	Time    time.Time
-	File    string
-	Line    int
-	Func    string
-	Format  string
-	Args    []interface{}
-	AppType string
-	AppName string
-	Flag    int
+	logger *logger
+	Buffer *bytes.Buffer
+	Map    map[string]interface{}
+	Level  Level
+	Time   time.Time
+	File   string
+	Line   int
+	Func   string
+	Format string
+	Args   []interface{}
 }
 
 func entry(logger *logger) *Entry {

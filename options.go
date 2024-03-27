@@ -84,7 +84,7 @@ type options struct {
 	stdLevel      Level
 	formatter     Formatter
 	disableCaller bool
-	appType       string
+	appType       int
 	appName       string
 	disableApp    bool
 	flag          int
@@ -145,7 +145,7 @@ func WithDisableApp(app bool) Option {
 	}
 }
 
-func WithApp(appType, appName string) Option {
+func WithApp(appType int, appName string) Option {
 	return func(o *options) {
 		o.appType = appType
 		o.appName = appName
