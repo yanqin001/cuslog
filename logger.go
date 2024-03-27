@@ -101,8 +101,8 @@ func (l *logger) Infof(format string, args ...interface{}) {
 	l.entry().write(InfoLevel, format, args...)
 }
 
-func (l *logger) InfoFf(flag int, format string, args ...interface{}) {
-	l.opt.flag = flag
+func (l *logger) InfoFf(format string, args ...interface{}) {
+	l.opt.flag = 1
 	l.entry().write(InfoLevel, format, args...)
 }
 
@@ -114,8 +114,8 @@ func (l *logger) Errorf(format string, args ...interface{}) {
 	l.entry().write(ErrorLevel, format, args...)
 }
 
-func (l *logger) ErrorFf(flag int, format string, args ...interface{}) {
-	l.opt.flag = flag
+func (l *logger) ErrorFf(format string, args ...interface{}) {
+	l.opt.flag = 2
 	l.entry().write(ErrorLevel, format, args...)
 }
 
