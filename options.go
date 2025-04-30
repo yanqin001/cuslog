@@ -88,6 +88,7 @@ type options struct {
 	appName       string
 	disableApp    bool
 	flag          int
+	forgeType     string
 }
 
 type Option func(*options)
@@ -149,5 +150,11 @@ func WithApp(appType int, appName string) Option {
 	return func(o *options) {
 		o.appType = appType
 		o.appName = appName
+	}
+}
+
+func WithForgeType(forgeType string) Option {
+	return func(o *options) {
+		o.forgeType = forgeType
 	}
 }

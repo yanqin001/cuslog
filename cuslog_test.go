@@ -9,6 +9,7 @@ func TestCuslog(t *testing.T) {
 		//cuslog.WithOutput(fd),
 		WithFormatter(&JsonFormatter{IgnoreBasicFields: false}),
 		WithApp(1, "vuln-center"),
+		WithForgeType("aliyun"),
 	)
 	l.Info("custom log with json formatter")
 	l.InfoF("custom log with json formatter")

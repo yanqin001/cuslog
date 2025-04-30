@@ -15,6 +15,9 @@ func (f *JsonFormatter) Format(e *Entry) error {
 	if !e.logger.opt.disableApp {
 		e.Map["appName"] = e.logger.opt.appName
 		e.Map["appType"] = e.logger.opt.appType
+		if e.logger.opt.forgeType != "" {
+			e.Map["forgeType"] = e.logger.opt.forgeType
+		}
 	}
 
 	if e.logger.opt.flag != 0 {
